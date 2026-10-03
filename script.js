@@ -22,7 +22,6 @@ import {
 
 
 const firebaseConfig = {
-
     apiKey:
         "AIzaSyBP7BXunPg_brMRnPmZKMBYR6JM6loYMPE",
 
@@ -40,28 +39,28 @@ const firebaseConfig = {
 
     appId:
         "1:965197167948:web:795269e611c64edd83a3e9"
-
 };
 
 
 const app =
-    initializeApp(
-        firebaseConfig
-    );
-
+    initializeApp(firebaseConfig);
 
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
 
 
+/* =========================
+   CURRENT PAGE
+   ========================= */
+
 const currentPage =
     window.location.pathname
         .split("/")
-        .pop();
+        .pop()
+        .toLowerCase();
 
 
 /* =========================
@@ -86,7 +85,7 @@ if (loginForm) {
             const email =
                 document.getElementById(
                     "email"
-                ).value;
+                ).value.trim();
 
 
             const password =
@@ -114,6 +113,11 @@ if (loginForm) {
                 );
 
 
+                /*
+                 * After successful login,
+                 * go to the main DejaView page.
+                 */
+
                 window.location.href =
                     "DejaView.html";
 
@@ -121,7 +125,6 @@ if (loginForm) {
             } catch (error) {
 
                 console.log(error);
-
 
                 loginMessage.textContent =
                     "Invalid email or password.";
@@ -135,19 +138,27 @@ if (loginForm) {
 
 
 /* =========================
-   AUTHENTICATION CHECK
+   FIREBASE AUTH CHECK
    ========================= */
 
 onAuthStateChanged(
     auth,
     function(user) {
 
+        /*
+         * MAIN SYSTEM
+         */
 
         if (
-            currentPage === "DejaView.html"
+            currentPage === "dejaview.html"
         ) {
 
             if (!user) {
+
+                /*
+                 * User is not logged in.
+                 * Send them to index.html.
+                 */
 
                 window.location.href =
                     "index.html";
@@ -157,6 +168,11 @@ onAuthStateChanged(
             }
 
 
+            /*
+             * User is logged in.
+             * Load the system data.
+             */
+
             loadStudents();
 
             loadScenarios();
@@ -164,12 +180,21 @@ onAuthStateChanged(
         }
 
 
+        /*
+         * LOGIN PAGE
+         */
+
         if (
             currentPage === "index.html" ||
             currentPage === ""
         ) {
 
             if (user) {
+
+                /*
+                 * Already logged in.
+                 * Go to DejaView.
+                 */
 
                 window.location.href =
                     "DejaView.html";
@@ -198,7 +223,6 @@ if (logoutButton) {
         "click",
         async function() {
 
-
             const confirmLogout =
                 confirm(
                     "Are you sure you want to log out?"
@@ -217,6 +241,11 @@ if (logoutButton) {
                 await signOut(auth);
 
 
+                /*
+                 * IMPORTANT:
+                 * Login page is now index.html.
+                 */
+
                 window.location.href =
                     "index.html";
 
@@ -233,14 +262,18 @@ if (logoutButton) {
 }
 
 
-/* =========================
-   STUDENTS
-   ========================= */
+/* =================================================
+   STUDENT RECORDS
+   ================================================= */
 
 let students = [];
 
 let editingStudentId = null;
 
+
+/* =========================
+   LOAD STUDENTS
+   ========================= */
 
 async function loadStudents() {
 
@@ -260,9 +293,11 @@ async function loadStudents() {
     studentTable.innerHTML =
         `
         <tr>
+
             <td colspan="5">
                 Loading students...
             </td>
+
         </tr>
         `;
 
@@ -308,9 +343,11 @@ async function loadStudents() {
         studentTable.innerHTML =
             `
             <tr>
+
                 <td colspan="5">
                     Unable to load students.
                 </td>
+
             </tr>
             `;
 
@@ -318,6 +355,10 @@ async function loadStudents() {
 
 }
 
+
+/* =========================
+   DISPLAY STUDENTS
+   ========================= */
 
 function displayStudents(
     studentList
@@ -347,9 +388,11 @@ function displayStudents(
         studentTable.innerHTML =
             `
             <tr>
+
                 <td colspan="5">
                     No students found.
                 </td>
+
             </tr>
             `;
 
@@ -430,7 +473,7 @@ function displayStudents(
 
 
 /* =========================
-   STUDENT SEARCH AND SORT
+   SEARCH AND SORT
    ========================= */
 
 const searchStudent =
@@ -633,6 +676,10 @@ function updateStudentList() {
 }
 
 
+/* =========================
+   SEARCH EVENT
+   ========================= */
+
 if (searchStudent) {
 
     searchStudent.addEventListener(
@@ -646,6 +693,10 @@ if (searchStudent) {
 
 }
 
+
+/* =========================
+   SORT EVENT
+   ========================= */
 
 if (sortStudent) {
 
@@ -662,7 +713,7 @@ if (sortStudent) {
 
 
 /* =========================
-   STUDENT BUTTONS
+   EDIT BUTTONS
    ========================= */
 
 function attachEditButtons() {
@@ -690,6 +741,10 @@ function attachEditButtons() {
 
 }
 
+
+/* =========================
+   DELETE BUTTONS
+   ========================= */
 
 function attachDeleteButtons() {
 
@@ -927,6 +982,10 @@ if (studentForm) {
 }
 
 
+/* =========================
+   EDIT STUDENT
+   ========================= */
+
 function editStudent(id) {
 
     const student =
@@ -992,6 +1051,10 @@ function editStudent(id) {
 }
 
 
+/* =========================
+   DELETE STUDENT
+   ========================= */
+
 async function deleteStudent(id) {
 
     const confirmDelete =
@@ -1040,14 +1103,18 @@ async function deleteStudent(id) {
 }
 
 
-/* =========================
+/* =================================================
    SCENARIOS
-   ========================= */
+   ================================================= */
 
 let scenarios = [];
 
 let editingScenarioId = null;
 
+
+/* =========================
+   LOAD SCENARIOS
+   ========================= */
 
 async function loadScenarios() {
 
@@ -1123,6 +1190,10 @@ async function loadScenarios() {
 
 }
 
+
+/* =========================
+   DISPLAY SCENARIOS
+   ========================= */
 
 function displayScenarios(
     scenarioListData
@@ -1328,7 +1399,7 @@ function displayScenarios(
 
 
 /* =========================
-   SCENARIO SEARCH
+   SEARCH SCENARIOS
    ========================= */
 
 const searchScenario =
@@ -1426,7 +1497,7 @@ if (searchScenario) {
 
 
 /* =========================
-   SCENARIO BUTTONS
+   SCENARIO EDIT BUTTONS
    ========================= */
 
 function attachScenarioEditButtons() {
@@ -1454,6 +1525,10 @@ function attachScenarioEditButtons() {
 
 }
 
+
+/* =========================
+   SCENARIO DELETE BUTTONS
+   ========================= */
 
 function attachScenarioDeleteButtons() {
 
@@ -1548,6 +1623,10 @@ if (closeScenarioModal) {
 }
 
 
+/* =========================
+   CLOSE MODALS
+   ========================= */
+
 window.addEventListener(
     "click",
     function(event) {
@@ -1641,7 +1720,6 @@ if (scenarioForm) {
 
                 },
 
-
                 {
 
                     text:
@@ -1662,7 +1740,6 @@ if (scenarioForm) {
                         ).value.trim()
 
                 },
-
 
                 {
 
@@ -1815,6 +1892,10 @@ if (scenarioForm) {
 }
 
 
+/* =========================
+   EDIT SCENARIO
+   ========================= */
+
 function editScenario(id) {
 
     const scenario =
@@ -1879,10 +1960,8 @@ function editScenario(id) {
     const option1 =
         options[0] || {};
 
-
     const option2 =
         options[1] || {};
-
 
     const option3 =
         options[2] || {};
@@ -1947,6 +2026,10 @@ function editScenario(id) {
 
 }
 
+
+/* =========================
+   DELETE SCENARIO
+   ========================= */
 
 async function deleteScenario(id) {
 
