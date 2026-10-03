@@ -155,14 +155,14 @@ onAuthStateChanged(
     function(user) {
 
         if (
-            currentPage === "index.html" ||
+            currentPage === "Dejaview.html" ||
             currentPage === ""
         ) {
 
             if (!user) {
 
                 window.location.href =
-                    "login.html";
+                    "index.html";
 
                 return;
 
@@ -177,13 +177,13 @@ onAuthStateChanged(
 
 
         if (
-            currentPage === "login.html"
+            currentPage === "index.html"
         ) {
 
             if (user) {
 
                 window.location.href =
-                    "index.html";
+                    "Dejaview.html";
 
             }
 
