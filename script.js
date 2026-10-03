@@ -197,7 +197,7 @@ onAuthStateChanged(
                  */
 
                 window.location.href =
-                    "DejaView.html";
+                    "Dejaview.html";
 
             }
 
