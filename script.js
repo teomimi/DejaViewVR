@@ -2,14 +2,12 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 
-
 import {
     getAuth,
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -22,10 +20,6 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-
-/* =========================
-   FIREBASE CONFIG
-   ========================= */
 
 const firebaseConfig = {
 
@@ -50,12 +44,10 @@ const firebaseConfig = {
 };
 
 
-/* =========================
-   INITIALIZE FIREBASE
-   ========================= */
-
 const app =
-    initializeApp(firebaseConfig);
+    initializeApp(
+        firebaseConfig
+    );
 
 
 const auth =
@@ -65,10 +57,6 @@ const auth =
 const db =
     getFirestore(app);
 
-
-/* =========================
-   CURRENT PAGE
-   ========================= */
 
 const currentPage =
     window.location.pathname
@@ -127,7 +115,7 @@ if (loginForm) {
 
 
                 window.location.href =
-                    "Dejaview.html";
+                    "DejaView.html";
 
 
             } catch (error) {
@@ -154,9 +142,9 @@ onAuthStateChanged(
     auth,
     function(user) {
 
+
         if (
-            currentPage === "Dejaview.html" ||
-            currentPage === ""
+            currentPage === "DejaView.html"
         ) {
 
             if (!user) {
@@ -177,13 +165,14 @@ onAuthStateChanged(
 
 
         if (
-            currentPage === "index.html"
+            currentPage === "index.html" ||
+            currentPage === ""
         ) {
 
             if (user) {
 
                 window.location.href =
-                    "Dejaview.html";
+                    "DejaView.html";
 
             }
 
@@ -209,6 +198,7 @@ if (logoutButton) {
         "click",
         async function() {
 
+
             const confirmLogout =
                 confirm(
                     "Are you sure you want to log out?"
@@ -226,8 +216,10 @@ if (logoutButton) {
 
                 await signOut(auth);
 
+
                 window.location.href =
-                    "login.html";
+                    "index.html";
+
 
             } catch (error) {
 
@@ -241,18 +233,14 @@ if (logoutButton) {
 }
 
 
-/* =========================================================
-   STUDENT SYSTEM
-   ========================================================= */
+/* =========================
+   STUDENTS
+   ========================= */
 
 let students = [];
 
 let editingStudentId = null;
 
-
-/* =========================
-   LOAD STUDENTS
-   ========================= */
 
 async function loadStudents() {
 
@@ -331,10 +319,6 @@ async function loadStudents() {
 }
 
 
-/* =========================
-   DISPLAY STUDENTS
-   ========================= */
-
 function displayStudents(
     studentList
 ) {
@@ -368,7 +352,6 @@ function displayStudents(
                 </td>
             </tr>
             `;
-
 
         return;
 
@@ -650,10 +633,6 @@ function updateStudentList() {
 }
 
 
-/* =========================
-   SEARCH EVENT
-   ========================= */
-
 if (searchStudent) {
 
     searchStudent.addEventListener(
@@ -667,10 +646,6 @@ if (searchStudent) {
 
 }
 
-
-/* =========================
-   SORT EVENT
-   ========================= */
 
 if (sortStudent) {
 
@@ -687,7 +662,7 @@ if (sortStudent) {
 
 
 /* =========================
-   EDIT BUTTONS
+   STUDENT BUTTONS
    ========================= */
 
 function attachEditButtons() {
@@ -716,10 +691,6 @@ function attachEditButtons() {
 }
 
 
-/* =========================
-   DELETE BUTTONS
-   ========================= */
-
 function attachDeleteButtons() {
 
     document
@@ -746,9 +717,9 @@ function attachDeleteButtons() {
 }
 
 
-/* =========================================================
+/* =========================
    STUDENT MODAL
-   ========================================================= */
+   ========================= */
 
 const studentModal =
     document.getElementById(
@@ -956,10 +927,6 @@ if (studentForm) {
 }
 
 
-/* =========================
-   EDIT STUDENT
-   ========================= */
-
 function editStudent(id) {
 
     const student =
@@ -1025,10 +992,6 @@ function editStudent(id) {
 }
 
 
-/* =========================
-   DELETE STUDENT
-   ========================= */
-
 async function deleteStudent(id) {
 
     const confirmDelete =
@@ -1077,18 +1040,14 @@ async function deleteStudent(id) {
 }
 
 
-/* =========================================================
-   SCENARIO MODULE
-   ========================================================= */
+/* =========================
+   SCENARIOS
+   ========================= */
 
 let scenarios = [];
 
 let editingScenarioId = null;
 
-
-/* =========================
-   LOAD SCENARIOS
-   ========================= */
 
 async function loadScenarios() {
 
@@ -1165,10 +1124,6 @@ async function loadScenarios() {
 }
 
 
-/* =========================
-   DISPLAY SCENARIOS
-   ========================= */
-
 function displayScenarios(
     scenarioListData
 ) {
@@ -1200,7 +1155,6 @@ function displayScenarios(
                 No scenario questions found.
             </p>
             `;
-
 
         return;
 
@@ -1280,17 +1234,23 @@ function displayScenarios(
                     <div>
 
                         <p class="scenario-question-id">
+
                             Question ID:
                             ${escapeHTML(
                                 scenario.questionID || ""
                             )}
+
                         </p>
 
+
                         <p class="scenario-question">
+
                             ${escapeHTML(
                                 scenario.questionText || ""
                             )}
+
                         </p>
+
 
                         <p class="scenario-info">
 
@@ -1325,6 +1285,7 @@ function displayScenarios(
                         >
                             Edit
                         </button>
+
 
                         <button
                             class="scenario-delete-button"
@@ -1465,7 +1426,7 @@ if (searchScenario) {
 
 
 /* =========================
-   SCENARIO EDIT BUTTONS
+   SCENARIO BUTTONS
    ========================= */
 
 function attachScenarioEditButtons() {
@@ -1493,10 +1454,6 @@ function attachScenarioEditButtons() {
 
 }
 
-
-/* =========================
-   SCENARIO DELETE BUTTONS
-   ========================= */
 
 function attachScenarioDeleteButtons() {
 
@@ -1591,10 +1548,6 @@ if (closeScenarioModal) {
 }
 
 
-/* =========================
-   CLOSE MODALS
-   ========================= */
-
 window.addEventListener(
     "click",
     function(event) {
@@ -1688,6 +1641,7 @@ if (scenarioForm) {
 
                 },
 
+
                 {
 
                     text:
@@ -1708,6 +1662,7 @@ if (scenarioForm) {
                         ).value.trim()
 
                 },
+
 
                 {
 
@@ -1860,10 +1815,6 @@ if (scenarioForm) {
 }
 
 
-/* =========================
-   EDIT SCENARIO
-   ========================= */
-
 function editScenario(id) {
 
     const scenario =
@@ -1997,10 +1948,6 @@ function editScenario(id) {
 }
 
 
-/* =========================
-   DELETE SCENARIO
-   ========================= */
-
 async function deleteScenario(id) {
 
     const confirmDelete =
@@ -2050,28 +1997,33 @@ async function deleteScenario(id) {
 
 
 /* =========================
-   SECURITY HELPER
+   ESCAPE HTML
    ========================= */
 
 function escapeHTML(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
