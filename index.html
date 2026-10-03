@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>DejaView - Student Record System</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            DejaView
+        </h1>
+
+        <p>
+            Student Record and Tourist Scenario Management System
+        </p>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#students">
+            Student List
+        </a>
+
+        <a href="#module">
+            Module
+        </a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- HOME -->
+
+        <section
+            id="home"
+            class="home-section"
+        >
+
+            <h2>
+                Welcome to DejaView
+            </h2>
+
+            <p>
+                DejaView is a student record and
+                tourist scenario management system.
+            </p>
+
+            <p>
+                Teachers can manage student information
+                and scenario questions for different
+                tourist destinations.
+            </p>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section
+            id="about"
+            class="about-section"
+        >
+
+            <h2>
+                About DejaView
+            </h2>
+
+            <p>
+                DejaView is a student record and scenario
+                management system designed to help teachers
+                manage student information and tourist
+                destination scenarios.
+            </p>
+
+
+            <h3 class="tourist-title">
+                Featured Tourist Spots
+            </h3>
+
+            <p class="tourist-instruction">
+                Click a tourist spot to view its full
+                description.
+            </p>
+
+
+            <div class="tourist-gallery">
+
+
+                <!-- OUR LADY OF GROTTO SHRINE -->
+
+                <a
+                    href="#tourist-grotto"
+                    class="tourist-card-link"
+                >
+
+                    <div class="tourist-card">
+
+                        <img
+                            src="images/our_lady_grotto.jpg"
+                            alt="Our Lady of Grotto Shrine SJDM"
+                        >
+
+                        <div class="tourist-info">
+
+                            <h4>
+                                Our Lady of Grotto Shrine – SJDM
+                            </h4>
+
+                            <p>
+                                Click to view more information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- PADRE PIO MOUNTAIN OF HEALING -->
+
+                <a
+                    href="#tourist-padre-pio"
+                    class="tourist-card-link"
+                >
+
+                    <div class="tourist-card">
+
+                        <img
+                            src="images/padre_pio.jpg"
+                            alt="Padre Pio Mountain of Healing SJDM"
+                        >
+
+                        <div class="tourist-info">
+
+                            <h4>
+                                Padre Pio Mountain of Healing – SJDM
+                            </h4>
+
+                            <p>
+                                Click to view more information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- MOUNT BALAGBAG -->
+
+                <a
+                    href="#tourist-balagbag"
+                    class="tourist-card-link"
+                >
+
+                    <div class="tourist-card">
+
+                        <img
+                            src="images/balagbag.jpg"
+                            alt="Mount Balagbag"
+                        >
+
+                        <div class="tourist-info">
+
+                            <h4>
+                                Mount Balagbag
+                            </h4>
+
+                            <p>
+                                Click to view more information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- STUDENT LIST -->
+
+        <section
+            id="students"
+            class="student-section"
+        >
+
+            <h2>
+                Student List
+            </h2>
+
+
+            <div class="student-controls">
+
+                <input
+                    type="text"
+                    id="searchStudent"
+                    placeholder="Search Student ID, Name, Username, or Section"
+                >
+
+
+                <select id="sortStudent">
+
+                    <option value="default">
+                        Default
+                    </option>
+
+                    <option value="id-asc">
+                        Student ID A-Z
+                    </option>
+
+                    <option value="id-desc">
+                        Student ID Z-A
+                    </option>
+
+                    <option value="name-asc">
+                        Name A-Z
+                    </option>
+
+                    <option value="name-desc">
+                        Name Z-A
+                    </option>
+
+                    <option value="section-asc">
+                        Section A-Z
+                    </option>
+
+                    <option value="section-desc">
+                        Section Z-A
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="addStudentButton"
+                >
+                    Add Student
+                </button>
+
+            </div>
+
+
+            <div class="student-table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Full Name
+                            </th>
+
+                            <th>
+                                Username
+                            </th>
+
+                            <th>
+                                Section
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTable">
+
+                        <tr>
+
+                            <td colspan="5">
+                                Loading students...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- MODULE -->
+
+        <section
+            id="module"
+            class="module-section"
+        >
+
+            <h2>
+                Scenario Questions
+            </h2>
+
+            <p>
+                Manage tourist destination scenario
+                questions and answer options.
+            </p>
+
+
+            <div class="scenario-controls">
+
+                <input
+                    type="text"
+                    id="searchScenario"
+                    placeholder="Search Question, ID, Speaker, or Destination"
+                >
+
+
+                <button
+                    id="addScenarioButton"
+                >
+                    Add Scenario
+                </button>
+
+            </div>
+
+
+            <div id="scenarioList">
+
+                <p class="loading-message">
+                    Loading scenarios...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             TOURIST DESTINATION DETAILS
+             ================================= -->
+
+
+        <!-- OUR LADY OF GROTTO SHRINE -->
+
+        <section
+            id="tourist-grotto"
+            class="tourist-detail-section"
+        >
+
+            <div class="tourist-detail-content">
+
+                <img
+                    src="images/our_lady_grotto.jpg"
+                    alt="Our Lady of Grotto Shrine SJDM"
+                    class="tourist-detail-image"
+                >
+
+
+                <div class="tourist-detail-text">
+
+                    <p class="detail-label">
+                        TOURIST DESTINATION
+                    </p>
+
+
+                    <h2>
+                        Our Lady of Grotto Shrine – SJDM
+                    </h2>
+
+
+                    <p>
+                        Our Lady of Grotto Shrine is a
+                        religious and tourist destination
+                        in San Jose del Monte City, Bulacan.
+                        It is visited by people who want to
+                        pray, reflect, and enjoy the peaceful
+                        surroundings.
+                    </p>
+
+
+                    <p>
+                        Visitors can spend time in prayer
+                        and explore the area while enjoying
+                        the surrounding scenery.
+                    </p>
+
+
+                    <div class="tourist-detail-info">
+
+                        <div>
+
+                            <strong>
+                                Destination ID
+                            </strong>
+
+                            <span>
+                                our_lady_grotto
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Activity
+                            </strong>
+
+                            <span>
+                                Prayer and sightseeing
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PADRE PIO MOUNTAIN OF HEALING -->
+
+        <section
+            id="tourist-padre-pio"
+            class="tourist-detail-section"
+        >
+
+            <div class="tourist-detail-content">
+
+                <img
+                    src="images/padre_pio.jpg"
+                    alt="Padre Pio Mountain of Healing SJDM"
+                    class="tourist-detail-image"
+                >
+
+
+                <div class="tourist-detail-text">
+
+                    <p class="detail-label">
+                        TOURIST DESTINATION
+                    </p>
+
+
+                    <h2>
+                        Padre Pio Mountain of Healing – SJDM
+                    </h2>
+
+
+                    <p>
+                        Padre Pio Mountain of Healing is a
+                        religious destination in San Jose del
+                        Monte City, Bulacan. It is known as a
+                        place where visitors can pray, reflect,
+                        and spend peaceful time with family
+                        and friends.
+                    </p>
+
+
+                    <p>
+                        Visitors can explore the area, enjoy
+                        the surroundings, and participate in
+                        religious activities.
+                    </p>
+
+
+                    <div class="tourist-detail-info">
+
+                        <div>
+
+                            <strong>
+                                Destination ID
+                            </strong>
+
+                            <span>
+                                padre_pio
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Activity
+                            </strong>
+
+                            <span>
+                                Prayer and sightseeing
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MOUNT BALAGBAG -->
+
+        <section
+            id="tourist-balagbag"
+            class="tourist-detail-section"
+        >
+
+            <div class="tourist-detail-content">
+
+                <img
+                    src="images/balagbag.jpg"
+                    alt="Mount Balagbag"
+                    class="tourist-detail-image"
+                >
+
+
+                <div class="tourist-detail-text">
+
+                    <p class="detail-label">
+                        TOURIST DESTINATION
+                    </p>
+
+
+                    <h2>
+                        Mount Balagbag
+                    </h2>
+
+
+                    <p>
+                        Mount Balagbag is a popular mountain
+                        destination known for its scenic
+                        views and hiking environment. It is
+                        a destination where visitors can
+                        enjoy nature and experience an outdoor
+                        adventure.
+                    </p>
+
+
+                    <p>
+                        Visitors can explore the surrounding
+                        area, enjoy the mountain scenery,
+                        and experience the natural landscape.
+                        Proper preparation and following local
+                        guidelines are important when visiting
+                        the area.
+                    </p>
+
+
+                    <div class="tourist-detail-info">
+
+                        <div>
+
+                            <strong>
+                                Destination ID
+                            </strong>
+
+                            <span>
+                                mt_balagbag
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Activity
+                            </strong>
+
+                            <span>
+                                Hiking and sightseeing
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- STUDENT MODAL -->
+
+    <div
+        id="studentModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <span
+                id="closeModal"
+                class="close"
+            >
+                &times;
+            </span>
+
+
+            <h2 id="modalTitle">
+                Add Student
+            </h2>
+
+
+            <form id="studentForm">
+
+                <input
+                    type="text"
+                    id="studentFullname"
+                    placeholder="Full Name"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="studentUsername"
+                    placeholder="Username"
+                    required
+                >
+
+
+                <input
+                    type="password"
+                    id="studentPassword"
+                    placeholder="Password"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="studentIdNumber"
+                    placeholder="Student ID Number"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="studentSection"
+                    placeholder="Section"
+                    required
+                >
+
+
+                <button type="submit">
+                    Save Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCENARIO MODAL -->
+
+    <div
+        id="scenarioModal"
+        class="modal"
+    >
+
+        <div class="modal-content scenario-modal-content">
+
+            <span
+                id="closeScenarioModal"
+                class="close"
+            >
+                &times;
+            </span>
+
+
+            <h2 id="scenarioModalTitle">
+                Add Scenario
+            </h2>
+
+
+            <form id="scenarioForm">
+
+                <input
+                    type="text"
+                    id="scenarioQuestionID"
+                    placeholder="Question ID"
+                    required
+                >
+
+
+                <textarea
+                    id="scenarioQuestionText"
+                    placeholder="Question Text"
+                    required
+                ></textarea>
+
+
+                <input
+                    type="text"
+                    id="scenarioSpeakerNPC"
+                    placeholder="Speaker NPC"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="scenarioDestinationID"
+                    placeholder="Destination ID"
+                    required
+                >
+
+
+                <h3>
+                    Option 1
+                </h3>
+
+
+                <textarea
+                    id="optionText1"
+                    placeholder="Option Text"
+                    required
+                ></textarea>
+
+
+                <input
+                    type="number"
+                    id="optionScore1"
+                    placeholder="Score Weight"
+                    required
+                >
+
+
+                <textarea
+                    id="optionReaction1"
+                    placeholder="Taglish Reaction"
+                    required
+                ></textarea>
+
+
+                <h3>
+                    Option 2
+                </h3>
+
+
+                <textarea
+                    id="optionText2"
+                    placeholder="Option Text"
+                    required
+                ></textarea>
+
+
+                <input
+                    type="number"
+                    id="optionScore2"
+                    placeholder="Score Weight"
+                    required
+                >
+
+
+                <textarea
+                    id="optionReaction2"
+                    placeholder="Taglish Reaction"
+                    required
+                ></textarea>
+
+
+                <h3>
+                    Option 3
+                </h3>
+
+
+                <textarea
+                    id="optionText3"
+                    placeholder="Option Text"
+                    required
+                ></textarea>
+
+
+                <input
+                    type="number"
+                    id="optionScore3"
+                    placeholder="Score Weight"
+                    required
+                >
+
+
+                <textarea
+                    id="optionReaction3"
+                    placeholder="Taglish Reaction"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Save Scenario
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script
+        type="module"
+        src="script.js"
+    ></script>
+
+</body>
+
+</html>
