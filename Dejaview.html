@@ -23,12 +23,10 @@
 
     <header>
 
-        <h1>
-            DejaView
-        </h1>
+        <h1>DejaView</h1>
 
         <p>
-            Student Record and Tourist Scenario Management System
+            Student Record System
         </p>
 
         <button
@@ -40,6 +38,10 @@
 
     </header>
 
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
 
     <nav>
 
@@ -65,7 +67,9 @@
     <main>
 
 
-        <!-- HOME -->
+        <!-- =========================
+             HOME
+             ========================= -->
 
         <section
             id="home"
@@ -77,20 +81,23 @@
             </h2>
 
             <p>
-                DejaView is a student record and
-                tourist scenario management system.
+                DejaView is a simple student record
+                system that also provides information
+                about selected tourist destinations
+                in San Jose del Monte, Bulacan.
             </p>
 
             <p>
-                Teachers can manage student information
-                and scenario questions for different
-                tourist destinations.
+                Use the navigation menu above to
+                explore the system.
             </p>
 
         </section>
 
 
-        <!-- ABOUT -->
+        <!-- =========================
+             ABOUT
+             ========================= -->
 
         <section
             id="about"
@@ -102,27 +109,31 @@
             </h2>
 
             <p>
-                DejaView is a student record and scenario
-                management system designed to help teachers
-                manage student information and tourist
-                destination scenarios.
+                DejaView is designed to manage
+                student records and provide
+                scenario-based information about
+                tourist destinations.
+            </p>
+
+            <p>
+                Click on a tourist destination
+                below to view more information.
             </p>
 
 
             <h3 class="tourist-title">
-                Featured Tourist Spots
+                Tourist Destinations
             </h3>
 
             <p class="tourist-instruction">
-                Click a tourist spot to view its full
-                description.
+                Click a destination to view its details.
             </p>
 
 
             <div class="tourist-gallery">
 
 
-                <!-- OUR LADY OF GROTTO SHRINE -->
+                <!-- GROTTO -->
 
                 <a
                     href="#tourist-grotto"
@@ -139,11 +150,13 @@
                         <div class="tourist-info">
 
                             <h4>
-                                Our Lady of Grotto Shrine – SJDM
+                                Our Lady of Grotto Shrine
                             </h4>
 
                             <p>
-                                Click to view more information.
+                                A religious and tourist
+                                destination in San Jose
+                                del Monte, Bulacan.
                             </p>
 
                         </div>
@@ -153,7 +166,7 @@
                 </a>
 
 
-                <!-- PADRE PIO MOUNTAIN OF HEALING -->
+                <!-- PADRE PIO -->
 
                 <a
                     href="#tourist-padre-pio"
@@ -170,11 +183,13 @@
                         <div class="tourist-info">
 
                             <h4>
-                                Padre Pio Mountain of Healing – SJDM
+                                Padre Pio Mountain of Healing
                             </h4>
 
                             <p>
-                                Click to view more information.
+                                A peaceful destination
+                                known for prayer and
+                                religious activities.
                             </p>
 
                         </div>
@@ -184,7 +199,7 @@
                 </a>
 
 
-                <!-- MOUNT BALAGBAG -->
+                <!-- BALAGBAG -->
 
                 <a
                     href="#tourist-balagbag"
@@ -205,7 +220,9 @@
                             </h4>
 
                             <p>
-                                Click to view more information.
+                                A mountain destination
+                                popular for hiking and
+                                outdoor activities.
                             </p>
 
                         </div>
@@ -214,13 +231,14 @@
 
                 </a>
 
-
             </div>
 
         </section>
 
 
-        <!-- STUDENT LIST -->
+        <!-- =========================
+             STUDENT LIST
+             ========================= -->
 
         <section
             id="students"
@@ -230,6 +248,11 @@
             <h2>
                 Student List
             </h2>
+
+            <p>
+                Search, sort, add, edit, or delete
+                student records.
+            </p>
 
 
             <div class="student-controls">
@@ -315,7 +338,6 @@
 
                     </thead>
 
-
                     <tbody id="studentTable">
 
                         <tr>
@@ -335,7 +357,9 @@
         </section>
 
 
-        <!-- MODULE -->
+        <!-- =========================
+             MODULE
+             ========================= -->
 
         <section
             id="module"
@@ -347,8 +371,9 @@
             </h2>
 
             <p>
-                Manage tourist destination scenario
-                questions and answer options.
+                Manage the scenario questions
+                and answer options used by the
+                DejaView module.
             </p>
 
 
@@ -357,9 +382,8 @@
                 <input
                     type="text"
                     id="searchScenario"
-                    placeholder="Search Question, ID, Speaker, or Destination"
+                    placeholder="Search question, Question ID, speaker, or destination"
                 >
-
 
                 <button
                     id="addScenarioButton"
@@ -381,12 +405,9 @@
         </section>
 
 
-        <!-- =================================
-             TOURIST DESTINATION DETAILS
-             ================================= -->
-
-
-        <!-- OUR LADY OF GROTTO SHRINE -->
+        <!-- =================================================
+             TOURIST DETAIL 1
+             ================================================= -->
 
         <section
             id="tourist-grotto"
@@ -395,11 +416,16 @@
 
             <div class="tourist-detail-content">
 
-                <img
-                    src="images/our_lady_grotto.jpg"
-                    alt="Our Lady of Grotto Shrine SJDM"
-                    class="tourist-detail-image"
-                >
+
+                <div>
+
+                    <img
+                        src="images/our_lady_grotto.jpg"
+                        alt="Our Lady of Grotto Shrine"
+                        class="tourist-detail-image"
+                    >
+
+                </div>
 
 
                 <div class="tourist-detail-text">
@@ -408,26 +434,23 @@
                         TOURIST DESTINATION
                     </p>
 
-
                     <h2>
-                        Our Lady of Grotto Shrine – SJDM
+                        Our Lady of Grotto Shrine
                     </h2>
 
-
                     <p>
-                        Our Lady of Grotto Shrine is a
-                        religious and tourist destination
-                        in San Jose del Monte City, Bulacan.
-                        It is visited by people who want to
-                        pray, reflect, and enjoy the peaceful
-                        surroundings.
+                        The Our Lady of Grotto Shrine
+                        is a religious destination
+                        located in San Jose del Monte,
+                        Bulacan.
                     </p>
 
-
                     <p>
-                        Visitors can spend time in prayer
-                        and explore the area while enjoying
-                        the surrounding scenery.
+                        The site is visited by people
+                        for prayer, reflection, and
+                        religious activities. Visitors
+                        can also experience the peaceful
+                        surroundings of the area.
                     </p>
 
 
@@ -445,15 +468,15 @@
 
                         </div>
 
-
                         <div>
 
                             <strong>
-                                Activity
+                                Location
                             </strong>
 
                             <span>
-                                Prayer and sightseeing
+                                San Jose del Monte,
+                                Bulacan
                             </span>
 
                         </div>
@@ -467,7 +490,9 @@
         </section>
 
 
-        <!-- PADRE PIO MOUNTAIN OF HEALING -->
+        <!-- =================================================
+             TOURIST DETAIL 2
+             ================================================= -->
 
         <section
             id="tourist-padre-pio"
@@ -476,11 +501,16 @@
 
             <div class="tourist-detail-content">
 
-                <img
-                    src="images/padre_pio.jpg"
-                    alt="Padre Pio Mountain of Healing SJDM"
-                    class="tourist-detail-image"
-                >
+
+                <div>
+
+                    <img
+                        src="images/padre_pio.jpg"
+                        alt="Padre Pio Mountain of Healing"
+                        class="tourist-detail-image"
+                    >
+
+                </div>
 
 
                 <div class="tourist-detail-text">
@@ -489,26 +519,21 @@
                         TOURIST DESTINATION
                     </p>
 
-
                     <h2>
-                        Padre Pio Mountain of Healing – SJDM
+                        Padre Pio Mountain of Healing
                     </h2>
 
-
                     <p>
-                        Padre Pio Mountain of Healing is a
-                        religious destination in San Jose del
-                        Monte City, Bulacan. It is known as a
-                        place where visitors can pray, reflect,
-                        and spend peaceful time with family
-                        and friends.
+                        Padre Pio Mountain of Healing
+                        is a religious destination
+                        where visitors can spend time
+                        in prayer and reflection.
                     </p>
 
-
                     <p>
-                        Visitors can explore the area, enjoy
-                        the surroundings, and participate in
-                        religious activities.
+                        The area provides a peaceful
+                        environment for visitors and
+                        religious pilgrims.
                     </p>
 
 
@@ -526,15 +551,15 @@
 
                         </div>
 
-
                         <div>
 
                             <strong>
-                                Activity
+                                Location
                             </strong>
 
                             <span>
-                                Prayer and sightseeing
+                                San Jose del Monte,
+                                Bulacan
                             </span>
 
                         </div>
@@ -548,7 +573,9 @@
         </section>
 
 
-        <!-- MOUNT BALAGBAG -->
+        <!-- =================================================
+             TOURIST DETAIL 3
+             ================================================= -->
 
         <section
             id="tourist-balagbag"
@@ -557,11 +584,16 @@
 
             <div class="tourist-detail-content">
 
-                <img
-                    src="images/balagbag.jpg"
-                    alt="Mount Balagbag"
-                    class="tourist-detail-image"
-                >
+
+                <div>
+
+                    <img
+                        src="images/balagbag.jpg"
+                        alt="Mount Balagbag"
+                        class="tourist-detail-image"
+                    >
+
+                </div>
 
 
                 <div class="tourist-detail-text">
@@ -570,29 +602,22 @@
                         TOURIST DESTINATION
                     </p>
 
-
                     <h2>
                         Mount Balagbag
                     </h2>
 
-
                     <p>
-                        Mount Balagbag is a popular mountain
-                        destination known for its scenic
-                        views and hiking environment. It is
-                        a destination where visitors can
-                        enjoy nature and experience an outdoor
-                        adventure.
+                        Mount Balagbag is a popular
+                        outdoor destination in the
+                        San Jose del Monte area.
                     </p>
 
-
                     <p>
-                        Visitors can explore the surrounding
-                        area, enjoy the mountain scenery,
-                        and experience the natural landscape.
-                        Proper preparation and following local
-                        guidelines are important when visiting
-                        the area.
+                        It is known for hiking,
+                        sightseeing, and outdoor
+                        activities. Visitors should
+                        prepare properly and follow
+                        local guidelines when visiting.
                     </p>
 
 
@@ -610,15 +635,15 @@
 
                         </div>
 
-
                         <div>
 
                             <strong>
-                                Activity
+                                Location
                             </strong>
 
                             <span>
-                                Hiking and sightseeing
+                                San Jose del Monte,
+                                Bulacan
                             </span>
 
                         </div>
@@ -635,7 +660,9 @@
     </main>
 
 
-    <!-- STUDENT MODAL -->
+    <!-- =========================
+         STUDENT MODAL
+         ========================= -->
 
     <div
         id="studentModal"
@@ -651,7 +678,6 @@
                 &times;
             </span>
 
-
             <h2 id="modalTitle">
                 Add Student
             </h2>
@@ -666,14 +692,12 @@
                     required
                 >
 
-
                 <input
                     type="text"
                     id="studentUsername"
                     placeholder="Username"
                     required
                 >
-
 
                 <input
                     type="password"
@@ -682,7 +706,6 @@
                     required
                 >
 
-
                 <input
                     type="text"
                     id="studentIdNumber"
@@ -690,14 +713,12 @@
                     required
                 >
 
-
                 <input
                     type="text"
                     id="studentSection"
                     placeholder="Section"
                     required
                 >
-
 
                 <button type="submit">
                     Save Student
@@ -710,14 +731,18 @@
     </div>
 
 
-    <!-- SCENARIO MODAL -->
+    <!-- =========================
+         SCENARIO MODAL
+         ========================= -->
 
     <div
         id="scenarioModal"
         class="modal"
     >
 
-        <div class="modal-content scenario-modal-content">
+        <div
+            class="modal-content scenario-modal-content"
+        >
 
             <span
                 id="closeScenarioModal"
@@ -726,13 +751,13 @@
                 &times;
             </span>
 
-
             <h2 id="scenarioModalTitle">
                 Add Scenario
             </h2>
 
 
             <form id="scenarioForm">
+
 
                 <input
                     type="text"
@@ -769,25 +794,22 @@
                     Option 1
                 </h3>
 
-
                 <textarea
                     id="optionText1"
-                    placeholder="Option Text"
+                    placeholder="Option 1 Text"
                     required
                 ></textarea>
-
 
                 <input
                     type="number"
                     id="optionScore1"
-                    placeholder="Score Weight"
+                    placeholder="Option 1 Score Weight"
                     required
                 >
 
-
                 <textarea
                     id="optionReaction1"
-                    placeholder="Taglish Reaction"
+                    placeholder="Option 1 Taglish Reaction"
                     required
                 ></textarea>
 
@@ -796,25 +818,22 @@
                     Option 2
                 </h3>
 
-
                 <textarea
                     id="optionText2"
-                    placeholder="Option Text"
+                    placeholder="Option 2 Text"
                     required
                 ></textarea>
-
 
                 <input
                     type="number"
                     id="optionScore2"
-                    placeholder="Score Weight"
+                    placeholder="Option 2 Score Weight"
                     required
                 >
 
-
                 <textarea
                     id="optionReaction2"
-                    placeholder="Taglish Reaction"
+                    placeholder="Option 2 Taglish Reaction"
                     required
                 ></textarea>
 
@@ -823,25 +842,22 @@
                     Option 3
                 </h3>
 
-
                 <textarea
                     id="optionText3"
-                    placeholder="Option Text"
+                    placeholder="Option 3 Text"
                     required
                 ></textarea>
-
 
                 <input
                     type="number"
                     id="optionScore3"
-                    placeholder="Score Weight"
+                    placeholder="Option 3 Score Weight"
                     required
                 >
 
-
                 <textarea
                     id="optionReaction3"
-                    placeholder="Taglish Reaction"
+                    placeholder="Option 3 Taglish Reaction"
                     required
                 ></textarea>
 
